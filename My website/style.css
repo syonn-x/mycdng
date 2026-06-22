@@ -1,0 +1,95 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+.container header{
+  width: 50%;
+  margin: auto;
+  overflow: hidden;
+}
+.navbar{
+  float: right;
+  margin-top: 10px;
+}
+
+header {
+  background: #ff7043;
+  color: white;
+  padding-top: 30px;
+  min-height: 70px;
+  border-bottom: #ef3b2d 3px solid;
+}
+
+header a {
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 16px;
+  transition: color 0.2s;
+}
+
+header ul {
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+
+header li {
+  display: inline;
+  padding: 0 20px;
+}
+
+header nav {
+  float: right;
+  margin-top: 10px;
+}
+
+header .highlight,
+header .current a {
+  color: #ef3b2d;
+  font-weight: bold;
+}
+
+header a:hover {
+  color: #cccccc;
+  font-weight: bold;
+}
+
+section {
+  padding: 20px 0;
+  border-bottom: #cccccc 1px solid;
+}
+
+#home {
+  background: url('https://source.unsplash.com/1600x900/?food') no-repeat center center/cover;
+  color: #fff;
+  height: 400px;
+  text-align: center;
+}
+
+#home h2 {
+  padding-top: 100px;
+}
+
+#about,
+#recipes,
+#contact {
+  background: #fff;
+}
+
+#about h2,
+#recipes h2,
+#contact h2 {
+  text-align: center;
+}
+
+footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 30px 0;
+}

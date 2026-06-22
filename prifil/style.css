@@ -1,0 +1,42 @@
+*{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+.jurusan{
+    text-align: center;
+    color: brown;
+    background-color: rgb(255, 0, 195);
+    margin-right: 120px;
+    padding: 50px;
+    max-width: 180px;
+    margin: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+.jurusan__1{
+    text-align: center;
+    background-color: yellow;
+    margin-right: 120px;
+    padding: 50px;
+    max-width: 180px;
+    margin: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+.jurusan__2{
+    text-align: justify;
+    color: white;
+    background-color: burlywood;
+    margin: 10px;
+    max-width: 1000px;
+    padding: 60px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+p{
+    font-size: 18px;
+}
+body{
+    background-color: black;
+}

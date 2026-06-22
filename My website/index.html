@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Topologi Cisco – Denah 2 Lantai</title>
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;background:#f4f6f8;margin:0;padding:20px}
+    h2{text-align:center;margin:6px 0}
+    .page{max-width:1200px;margin:auto}
+    .floor{background:#fff;border:2px solid #333;border-radius:12px;margin:18px 0;padding:14px}
+    .title{font-weight:bold;text-align:center;margin-bottom:10px}
+    .map{display:grid;grid-template-columns:240px 1fr 260px;gap:10px;align-items:stretch}
+    .col{display:flex;flex-direction:column;gap:8px}
+    .center{border:2px dashed #bbb;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:bold}
+    .room,.device{border-radius:8px;padding:8px 10px;text-align:center;font-size:13px}
+    .room{background:#fafafa;border:1px solid #bbb}
+    .router{background:#ffe0b2;border:1px solid #e65100}
+    .switch{background:#c8e6c9;border:1px solid #1b5e20}
+    .pc{background:#f0f4c3;border:1px solid #827717}
+    .trunk{font-size:12px;color:#0d47a1}
+    .link{font-size:12px;color:#555;text-align:center}
+    .stack{display:flex;flex-direction:column;gap:6px}
+    .legend{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:10px}
+    .badge{font-size:11px}
+    .small{font-size:11px}
+  </style>
+</head>
+<body>
+<div class="page">
+  <h2>Topologi Cisco Packet Tracer berbasis Denah SMA (2 Lantai)</h2>
+
+  <!-- ================= LANTAI 1 ================= -->
+  <div class="floor">
+    <div class="title">DENAH LANTAI 1</div>
+    <div class="map">
+      <!-- KIRI -->
+      <div class="col">
+        <div class="room">R. Guru SMA<br/><span class="badge">VLAN 20</span></div>
+        <div class="room">R. Kepsek<br/><span class="badge">VLAN 10</span></div>
+      </div>
+
+      <!-- TENGAH -->
+      <div class="col">
+        
+        <div class="center">Lapangan Olahraga & Upacara</div>
+        <div class="stack">
+          <div class="device switch">SW-L1 (VTP Client)<br/><span class="small">Access VLAN 10,20</span></div>
+          <div class="link">│ Trunk</div>
+          <div class="device switch">SW-CORE (VTP Server)<br/><span class="small">VLAN 10,20,30,40,50,99</span></div>
+          <div class="link">│ Trunk (ROAS)</div>
+          <div class="device router">R1 – Router Lantai 1<br/><span class="small">VLAN10 192.168.10.1/24<br/>VLAN20 192.168.20.1/24<br/>VLAN30 192.168.30.1/24<br/>VLAN40 192.168.40.1/24<br/>VLAN50 192.168.50.1/24</span></div>
+        </div>
+      </div>
+
+      <!-- KANAN -->
+      <div class="col">
+        <div class="room">Perpus<br/><span class="badge">VLAN 50</span></div>
+        <div class="room">R. Server<br/><span class="badge">VLAN 99</span><br/><span class="small">Server DHCP / DNS</span></div>
+        <div class="room">Kelas X-1<br/><span class="badge">VLAN 30</span></div>
+        <div class="room">Kelas X-2<br/><span class="badge">VLAN 30</span></div>
+        <div class="room">Kelas X-3<br/><span class="badge">VLAN 30</span></div>
+        <div class="room">R. TU<br/><span class="badge">VLAN 10</span></div>
+        <div class="room">R. Guru SMA<br/><span class="badge">VLAN 20</span></div>
+        <div class="room">Kelas X<br/><span class="badge">VLAN 30</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LINK ANTAR LANTAI -->
+  <div class="link">R1 ⇄ R2 : Copper Cross / Auto — OSPF — Network 10.10.10.0/30</div>
+
+  <!-- ================= LANTAI 2 ================= -->
+  <div class="floor">
+    <div class="title">DENAH LANTAI 2</div>
+    <div class="map">
+      <!-- KIRI -->
+      <div class="col">
+        <div class="room">Kelas XII-3<br/><span class="badge">VLAN 40</span></div>
+        <div class="room">Kelas XII-2<br/><span class="badge">VLAN 40</span></div>
+        <div class="room">Kelas XII-1<br/><span class="badge">VLAN 40</span></div>
+      </div>
+
+      <!-- TENGAH -->
+      <div class="col">
+        
+        <div class="center">Area Tengah</div>
+        <div class="stack">
+          <div class="device switch">SW-L2 (VTP Transparent)<br/><span class="small">Trunk VLAN 30,40</span></div>
+          <div class="link">│ Trunk</div>
+          <div class="device router">R2 – Router Lantai 2<br/><span class="small">VLAN30 192.168.30.2/24<br/>VLAN40 192.168.40.2/24</span></div>
+        </div>
+      </div>
+
+      <!-- KANAN -->
+      <div class="col">
+        <div class="room">Kelas XI-1<br/><span class="badge">VLAN 30</span></div>
+        <div class="room">Kelas XI-2<br/><span class="badge">VLAN 30</span></div>
+        <div class="room">Kelas XI-3<br/><span class="badge">VLAN 30</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEGENDA -->
+  <div class="floor">
+    <div class="title">Legenda VLAN & IP</div>
+    <div class="legend">
+      <div class="room">VLAN 99 – SERVER / MANAGEMENT<br/>192.168.99.0/24</div>
+      <div class="room">VLAN 10 – ADMIN (TU, Kepsek)<br/>192.168.10.0/24</div>
+      <div class="room">VLAN 20 – GURU<br/>192.168.20.0/24</div>
+      <div class="room">VLAN 30 – KELAS SMA (X & XI)<br/>192.168.30.0/24</div>
+      <div class="room">VLAN 40 – KELAS SMA (XII)<br/>192.168.40.0/24</div>
+      <div class="room">VLAN 50 – FASILITAS<br/>192.168.50.0/24</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
